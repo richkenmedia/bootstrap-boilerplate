@@ -3,6 +3,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   entry: "./src/app.js",
   devtool: "inline-source-map",
+  devServer: {
+    contentBase: "./public",
+    publicPath: "/dist",
+    hot: true,
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "app.css",
