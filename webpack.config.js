@@ -42,6 +42,22 @@ module.exports = {
           },
         ],
       },
+      // This is for babel (ES6 to ES5)
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+      // This is to load resources like this `import img from './image.png';`
+      {
+        test: /\.(svg|gif|png|eot|woff|ttf)$/,
+        use: ["url-loader"],
+      },
     ],
   },
 };
