@@ -1,6 +1,8 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
+  entry: "./src/app.js",
+  devtool: "inline-source-map",
   plugins: [
     new MiniCssExtractPlugin({
       filename: "app.css",
@@ -8,7 +10,7 @@ module.exports = {
   ],
   output: {
     path: `${__dirname}/dist`,
-    filename: "bundle.js",
+    filename: "app.js",
   },
   module: {
     rules: [
