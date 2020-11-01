@@ -1,4 +1,7 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
+  plugins: [new MiniCssExtractPlugin()],
   output: {
     path: `${__dirname}/dist`,
     filename: "bundle.js",
@@ -9,10 +12,16 @@ module.exports = {
         test: /\.(scss)$/,
         use: [
           {
-            loader: "style-loader", // inject CSS to page
+            loader: "style-loader",
           },
           {
-            loader: "css-loader", // translates CSS into CommonJS modules
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
+          },
+          {
+            loader: "css-loader",
           },
 
           {
